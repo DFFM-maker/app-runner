@@ -6,12 +6,14 @@ import { Button } from "./Button";
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  title: string;
+  title?: string;
   children: ReactNode;
   className?: string;
+  hideHeader?: boolean;
+  noPadding?: boolean;
 }
 
-export function Modal({ isOpen, onClose, title, children, className }: ModalProps) {
+export function Modal({ isOpen, onClose, title, children, className, hideHeader, noPadding }: ModalProps) {
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -36,13 +38,15 @@ export function Modal({ isOpen, onClose, title, children, className }: ModalProp
           className
         )}
       >
-        <div className="flex items-center justify-between p-6 border-b border-zinc-800">
-          <h2 className="text-xl font-bold text-white">{title}</h2>
-          <Button variant="ghost" size="icon" onClick={onClose} className="rounded-full">
-            <span className="material-symbols-outlined">close</span>
-          </Button>
-        </div>
-        <div className="flex-1 overflow-y-auto p-6">
+        {!hideHeader && (
+          <div className="flex items-center justify-between p-6 border-b border-zinc-800">
+            <h2 className="text-xl font-bold text-white">{title}</h2>
+            <Button variant="ghost" size="icon" onClick={onClose} className="rounded-full">
+              <span className="material-symbols-outlined">close</span>
+            </Button>
+          </div>
+        )}
+        <div className={cn("flex-1 overflow-y-auto", !noPadding && "p-6")}>
           {children}
         </div>
       </div>
