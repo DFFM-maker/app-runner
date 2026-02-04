@@ -1,6 +1,6 @@
 import { DocumentCard } from "../components/library/DocumentCard";
-import { Button } from "../components/ui/Button";
 import { Input } from "../components/ui/Input";
+import { Header } from "../components/layout/Header";
 
 export function LibraryPage() {
   const documents = [
@@ -13,19 +13,7 @@ export function LibraryPage() {
 
   return (
     <div className="flex-1 flex flex-col h-full overflow-hidden">
-      <header className="h-14 flex items-center justify-between px-6 border-b border-zinc-800 shrink-0">
-        <h2 className="text-lg font-bold text-white">Library</h2>
-        <div className="flex items-center gap-3">
-          <Button size="sm" variant="outline" className="gap-2">
-            <span className="material-symbols-outlined !text-[18px]">filter_list</span>
-            <span>Filter</span>
-          </Button>
-          <Button size="sm" className="gap-2">
-            <span className="material-symbols-outlined !text-[18px]">upload</span>
-            <span>Upload</span>
-          </Button>
-        </div>
-      </header>
+      <Header breadcrumbs={[{ label: "Workspace" }, { label: "Library", active: true }]} />
 
       <div className="flex-1 overflow-y-auto custom-scrollbar p-8">
         <div className="max-w-5xl mx-auto space-y-8">

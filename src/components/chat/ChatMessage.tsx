@@ -1,6 +1,7 @@
 import { Avatar } from "../ui/Avatar";
 import { Badge } from "../ui/Badge";
 import { cn } from "../../lib/utils";
+import avatarImg from "../../assets/avatar.png";
 
 interface ChatMessageProps {
   role: "user" | "assistant";
@@ -24,7 +25,7 @@ export function ChatMessage({ role, content, avatar, name, model, resources, sug
         {isAssistant ? (
           <span className="material-symbols-outlined !text-[20px] text-primary">auto_awesome</span>
         ) : (
-          <Avatar src={avatar} fallback="U" size="lg" className="border-none bg-transparent" />
+          <Avatar src={avatar || avatarImg} fallback="U" size="lg" className="border-none" />
         )}
       </div>
 
