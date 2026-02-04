@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+# 🧠 Second Brain Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, AI-driven personal knowledge management dashboard. Built with a focus on speed, minimalist aesthetics, and seamless AI integration via the Model Context Protocol (MCP).
 
-Currently, two official plugins are available:
+![Status](https://img.shields.io/badge/Status-Development-blue-600?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-black?style=flat-square)
+![Style](https://img.shields.io/badge/Style-Linear/Vercel-white?style=flat-square)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Overview
 
-## React Compiler
+Second Brain is a desktop-first web application designed to centralize documents and interact with them through an advanced AI chat interface. The UI follows the **Vercel/Linear design language**: dark mode by default, high-contrast typography, and subtle micro-interactions.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework:** React 18 with Vite
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Icons:** Lucide React
+- **Animations:** Framer Motion
+- **Protocol:** MCP (Model Context Protocol) for external tool integration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📂 Project Structure
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```text
+src/
+├── components/
+│   ├── ui/             # Atomic components (Buttons, Inputs, Modals)
+│   ├── layout/         # Sidebar, ChatInterface, Topbar
+│   └── chat/           # Message bubbles, Citations, InputZone
+├── hooks/              # Custom hooks for MCP and state management
+├── lib/                # Utility functions and API clients
+└── assets/             # Static resources and global styles
+🛠 Installation & Setup
+Clone the repository:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+git clone https://github.com/your-username/second-brain.git
+cd second-brain
+Install dependencies:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+npm install
+Environment Setup: Create a .env file in the root and add your MCP configuration:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+VITE_MCP_SERVER_URL=https://stitch.googleapis.com/mcp
+VITE_GOOGLE_API_KEY=YOUR_API_KEY_HERE
+Run development server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+npm run dev
+📡 MCP Configuration (Antigravity/Stitch)
+This project supports the Model Context Protocol. To connect your local environment with the Stitch server, ensure your configuration matches:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+{
+  "mcpServers": {
+    "stitch": {
+      "serverUrl": "https://stitch.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "YOUR_API_KEY"
+      }
+    }
+  }
+}
+🗓 Roadmap
+ Initial Repository Setup & Tech Stack Selection
+ Core UI Implementation (Sidebar & Chat Interface)
+ Integration with MCP Server for live data retrieval
+ Advanced File Management & Markdown support
+ Usage Analytics & API Management Dashboard
+🎨 Design Principles
+Dark Mode First: Deep blacks (#000000) and Zinc grays for depth.
+Minimalist UI: Removing clutter to focus on content and conversation.
+Performance: Instant feedback on interactions using Framer Motion.
+Accessibility: High contrast ratios and keyboard-friendly navigation.
+Built with ❤️ for the future of knowledge management.
+
+
+---
